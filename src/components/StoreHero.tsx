@@ -26,14 +26,14 @@ export function StoreHero() {
       <div className="container-page py-8 md:py-12">
         <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_400px] lg:gap-12">
           <div>
-            <div className="overflow-hidden rounded-xl border border-border bg-background-secondary">
+            <div className="aspect-16/9 overflow-hidden rounded-xl border border-border bg-background-secondary">
               <img
                 src={media[active].src}
                 alt={media[active].alt}
                 width={1600}
-                height={1008}
+                height={900}
                 loading="eager"
-                className="w-full"
+                className="size-full object-cover object-center"
               />
             </div>
             <div className="mt-3 grid grid-cols-4 gap-3">
@@ -47,7 +47,7 @@ export function StoreHero() {
                     i === active ? "border-primary" : "border-border hover:border-primary/50"
                   }`}
                 >
-                  <img src={m.src} alt="" loading="eager" className="aspect-4/3 w-full object-cover" />
+                  <img src={m.src} alt="" loading="eager" className="aspect-16/9 w-full object-cover" />
                 </button>
               ))}
             </div>
