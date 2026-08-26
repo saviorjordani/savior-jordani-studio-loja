@@ -1,15 +1,15 @@
 import { FAQ_ITEMS } from "@/lib/site";
 
-export const SITE_URL = "https://pixel-perfect-render-833.lovable.app";
+export const SITE_URL = "https://loja.saviz.com.br";
 
 export const organizationJsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "Savior Jordâni Studio",
   url: SITE_URL,
-  email: "contato@savizstudio.com.br",
+  email: "contato@saviz.com.br",
   description:
-    "Plugin profissional de retoque de retratos e beauty para Adobe Photoshop, em assinatura mensal.",
+    "Plugin profissional de retoque de retratos e beauty para Adobe Photoshop.",
 };
 
 export const productJsonLd = {
@@ -17,13 +17,13 @@ export const productJsonLd = {
   "@type": "Product",
   name: "Savior Jordâni Studio Plugin de Retoque para Photoshop",
   description:
-    "Plugin único para Photoshop com frequency separation, dodge & burn, textura de pele e correção de cor. Assinatura mensal.",
+    "Plugin único para Photoshop com frequency separation, dodge & burn, textura de pele e correção de cor.",
   brand: { "@type": "Brand", name: "Savior Jordâni Studio" },
   operatingSystem: "Windows",
   applicationCategory: "DesignApplication",
   offers: {
     "@type": "Offer",
-    price: "47.00",
+    price: "399.90",
     priceCurrency: "BRL",
     availability: "https://schema.org/InStock",
     url: `${SITE_URL}/pricing`,

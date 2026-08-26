@@ -1,34 +1,23 @@
-# Savior Jordani Studio: loja
+# Savior Jordani Studio: Loja Web & Painel do Cliente
 
-Loja, checkout Stripe e área autenticada de licenças do Savior Jordani Studio.
-Leia a documentação operacional em [docs/README.md](docs/README.md) e o fluxo
-de compra em [docs/licenciamento.md](docs/licenciamento.md).
-
-## Integração com Lovable
-
-O projeto é conectado ao [Lovable](https://lovable.dev). Evite reescrever o
-histórico publicado, pois os commits enviados sincronizam com o editor.
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: connect the project to GitHub and every change made in Lovable is committed straight to your repository.
-- **Full ownership**: this code is yours. Push to your repository and your changes sync back into Lovable, ready for your next prompt.
+Loja web, checkout Stripe e área autenticada do cliente do **Savior Jordâni Studio**.
+Leia a documentação operacional em [docs/README.md](docs/README.md) e o fluxo de licenciamento.
 
 ## Desenvolvimento
 
-Requer Node.js e npm.
+Requer Node.js (>= 20) e npm.
 
 ```sh
 npm i
 npm run dev
 ```
 
-## Stack
+## Stack Tecnológica
 
-- TanStack Start
+- TanStack Start (React 19 + Vite)
 - TypeScript
-- React
 - Tailwind CSS
+- Cloudflare Pages
 
 ---
 *Deploy e integração contínua ativos via Cloudflare Pages & GitHub Actions.*
-

@@ -1,7 +1,6 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {
   Outlet,
-  
   createRootRouteWithContext,
   useRouter,
   HeadContent,
@@ -12,8 +11,6 @@ import { useEffect, type ReactNode } from "react";
 import { NotFoundPage } from "@/components/NotFoundPage";
 import { Toaster } from "@/components/ui/sonner";
 import appCss from "../styles.css?url";
-import { reportLovableError } from "../lib/lovable-error-reporting";
-
 
 function NotFoundComponent() {
   return <NotFoundPage />;
@@ -22,18 +19,15 @@ function NotFoundComponent() {
 function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   console.error(error);
   const router = useRouter();
-  useEffect(() => {
-    reportLovableError(error, { boundary: "tanstack_root_error_component" });
-  }, [error]);
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
         <h1 className="text-xl font-semibold tracking-tight text-foreground">
-          This page didn't load
+          Página indisponível momento
         </h1>
         <p className="mt-2 text-sm text-muted-foreground">
-          Something went wrong on our end. You can try refreshing or head back home.
+          Ocorreu uma falha ao carregar a página. Tente recarregar ou volte para o início.
         </p>
         <div className="mt-6 flex flex-wrap justify-center gap-2">
           <button
@@ -43,13 +37,13 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
             }}
             className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
           >
-            Try again
+            Tentar novamente
           </button>
           <a
             href="/"
             className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent"
           >
-            Go home
+            Página Inicial
           </a>
         </div>
       </div>
@@ -66,17 +60,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "Plugin profissional de retoque de retratos e beauty para Adobe Photoshop. Plano mensal de R$ 47.",
+          "Plugin profissional de retoque de retratos e beauty para Adobe Photoshop.",
       },
       { name: "author", content: "Savior Jordâni Studio" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { property: "og:title", content: "Savior Jordâni Studio Plugin de Retoque para Photoshop" },
       { name: "twitter:title", content: "Savior Jordâni Studio Plugin de Retoque para Photoshop" },
-      { property: "og:description", content: "Plugin profissional de retoque de retratos e beauty para Adobe Photoshop. Plano mensal de R$ 47." },
-      { name: "twitter:description", content: "Plugin profissional de retoque de retratos e beauty para Adobe Photoshop. Plano mensal de R$ 47." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/9628a60d-c06c-4215-92dd-f9c682df03c4/id-preview-10078501--afea007d-bb67-4607-a163-5f99165c78c7.lovable.app-1785297960352.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/9628a60d-c06c-4215-92dd-f9c682df03c4/id-preview-10078501--afea007d-bb67-4607-a163-5f99165c78c7.lovable.app-1785297960352.png" },
+      { property: "og:description", content: "Plugin profissional de retoque de retratos e beauty para Adobe Photoshop." },
+      { name: "twitter:description", content: "Plugin profissional de retoque de retratos e beauty para Adobe Photoshop." },
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -107,6 +99,7 @@ function RootShell({ children }: { children: ReactNode }) {
       </head>
       <body>
         {children}
+        <Toaster position="bottom-right" richColors />
         <Scripts />
       </body>
     </html>
@@ -114,13 +107,12 @@ function RootShell({ children }: { children: ReactNode }) {
 }
 
 function RootComponent() {
-  const { queryClient } = Route.useRouteContext();
+  const router = useRouter();
+  const queryClient = router.options.context.queryClient;
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
-      <Toaster position="top-right" richColors closeButton />
     </QueryClientProvider>
   );
 }
