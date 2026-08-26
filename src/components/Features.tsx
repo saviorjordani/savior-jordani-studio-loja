@@ -1,35 +1,35 @@
-import { Blend, Droplets, Layers, Palette, Sun, Wand2 } from "lucide-react";
+import { Blend, Eye, Layers, Palette, Sun, Wand2 } from "lucide-react";
 
 const features = [
   {
+    icon: Eye,
+    title: "Camadas de Ajuda (Helping Layers)",
+    desc: "Ative a visualização guia com 1 clique para enxergar manchas e desníveis de iluminação imperceptíveis a olho nu.",
+  },
+  {
     icon: Layers,
-    title: "Texture",
-    desc: "Reconstrua e controle a textura da pele preservando o detalhe natural do poro.",
+    title: "Textura & Poros Reais",
+    desc: "Remove imperfeições mantendo a textura natural da pele, sem aquele aspecto de filtro ou pele plastificada.",
   },
   {
     icon: Blend,
-    title: "Frequency Separation",
-    desc: "Separação em alta e baixa frequência com um clique, pronta para pintar.",
+    title: "Separação de Frequência em 1 Clique",
+    desc: "Separe cor e textura instantaneamente para corrigir manchas de pele sem destruir a nitidez e os poros.",
   },
   {
     icon: Sun,
-    title: "Dodge & Burn",
-    desc: "Camadas de luz e sombra calibradas, com curva de contraste para conferência.",
+    title: "Dodge & Burn Pro",
+    desc: "Crie volume, contorno e iluminação de nível editorial com camadas de luz e sombra pré-calibradas.",
   },
   {
     icon: Wand2,
-    title: "Quick Select",
-    desc: "Seleções rápidas de pele, olhos, lábios e cabelo com máscaras editáveis.",
+    title: "Seleção Automática (Quick Select)",
+    desc: "Isole a pele, áreas de iluminação e sombras da foto com um clique, sem perder tempo criando máscaras na mão.",
   },
   {
     icon: Palette,
-    title: "Color Correction",
-    desc: "Correção de tom, temperatura e uniformização de pele em painel dedicado.",
-  },
-  {
-    icon: Droplets,
-    title: "Details & Skin",
-    desc: "Realce de detalhes finos e limpeza de manchas sem aparência plastificada.",
+    title: "Correção de Cor & Maquiagem Digital",
+    desc: "Uniformize o tom de pele, clareie dentes, realce os olhos, lábios e aplique detalhes finais com facilidade.",
   },
 ];
 
@@ -39,10 +39,10 @@ export function Features({ id = "recursos" }: { id?: string }) {
       <div className="container-page">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
-            Tudo que um retoque de beleza precisa
+            Tudo o que você precisa para um retoque perfeito
           </h2>
           <p className="mt-4 text-muted-foreground">
-            Seis módulos que substituem dezenas de ações e atalhos manuais no seu fluxo diário.
+            Um único painel intuitivo dentro do Photoshop que substitui dezenas de passos manuais por botões diretos e rápidos.
           </p>
         </div>
 

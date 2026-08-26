@@ -1,10 +1,10 @@
 import { Headphones, RefreshCw, ShieldCheck, Zap } from "lucide-react";
 
 const items = [
-  { icon: Zap, title: "Entrega imediata", desc: "Link de download no email em segundos" },
-  { icon: RefreshCw, title: "Sem fidelidade", desc: "Cancele quando quiser, sem multa" },
-  { icon: ShieldCheck, title: "Compra segura", desc: "Pix e cartão com checkout criptografado" },
-  { icon: Headphones, title: "Suporte real", desc: "Atendimento por email em até 24h" },
+  { icon: Zap, title: "Entrega imediata", desc: "Link e credenciais no e-mail em segundos" },
+  { icon: RefreshCw, title: "7 dias de garantia", desc: "Testou e não gostou? Reembolso integral" },
+  { icon: ShieldCheck, title: "Compra 100% segura", desc: "Cartão e Pix em ambiente criptografado" },
+  { icon: Headphones, title: "Suporte prioritário", desc: "Atendimento humano por e-mail em até 24h" },
 ];
 
 export function TrustStrip() {
