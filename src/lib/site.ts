@@ -1,16 +1,17 @@
 export const SITE_NAME = "Savior Jordâni Studio";
 
-/** Produto único: o plugin Savior Jordâni Studio, vendido como assinatura mensal. */
+/** Produto único: o plugin Savior Jordâni Studio, vendido como licença anual com desconto na renovação. */
 export const PRODUCT_NAME = "Savior Jordâni Studio Plugin para Photoshop";
 export const PRODUCT_SHORT =
   "Um único plugin com tudo que um retocador profissional usa todo dia, dentro do Photoshop.";
 export const PRODUCT_DESCRIPTION =
-  "O Savior Jordâni Studio é um só painel instalado no Photoshop que reúne as rotinas de retoque que você repete todos os dias: separação de frequência, dodge & burn, textura de pele, seleções rápidas e correção de cor. Nada de pacotes soltos: é um plugin atualizado continuamente e incluído na assinatura.";
+  "O Savior Jordâni Studio é um só painel instalado no Photoshop que reúne as rotinas de retoque que você repete todos os dias: separação de frequência, dodge & burn, textura de pele, seleções rápidas e correção de cor. Nada de pacotes soltos: é um plugin atualizado continuamente.";
 
-export const PRICE_LABEL = "R$ 47";
-export const PRICE_PERIOD = "/mês";
-export const PRICE_FULL_LABEL = "R$ 47/mês";
-export const BILLING_NOTE = "Cobrança mensal · cancele quando quiser";
+export const PRICE_LABEL = "R$ 399,90";
+export const PRICE_PERIOD = "/1º ano";
+export const PRICE_FULL_LABEL = "R$ 399,90 no 1º ano";
+export const PRICE_RENEWAL_LABEL = "Renovação por R$ 99,90/ano";
+export const BILLING_NOTE = "R$ 399,90 na primeira aquisição (1 ano de acesso) · Renovação por apenas R$ 99,90/ano";
 export const TRIAL_NOTE = "7 dias de garantia com reembolso integral";
 export const FILE_INFO = "Instalador .exe · 350 KB · Windows";
 export const SKU = "SVZ-PS-001";
@@ -29,20 +30,21 @@ export const TOOLS = [
 
 export const PLAN_INCLUDES = [
   "Todas as ferramentas do plugin",
-  "Atualizações e novas ferramentas incluídas",
+  "1 ano de acesso completo e atualizações",
+  "Renovação anual por apenas R$ 99,90",
   "Ativação em 2 computadores",
   "Suporte por email em até 24h",
-  "Cancele quando quiser, sem multa",
+  "Cancele a renovação a qualquer momento",
 ];
 
 export const FAQ_ITEMS = [
   {
-    q: "Como funciona a assinatura?",
-    a: "Você paga R$ 47 por mês e mantém acesso a todas as ferramentas do plugin, incluindo atualizações e novas funções. Não há fidelidade: pode cancelar a qualquer momento pela área de membro.",
+    q: "Como funciona a licença e a renovação?",
+    a: "A primeira aquisição custa R$ 399,90 e dá direito a 1 ano de acesso completo ao plugin com todas as atualizações. A partir do 2º ano, a renovação anual custa apenas R$ 99,90/ano. Você pode gerenciar ou cancelar a renovação a qualquer momento.",
   },
   {
     q: "Como instalo o plugin?",
-    a: "O plugin é entregue em um instalador .exe para Windows. Feche o Photoshop, execute o instalador, siga o assistente e abra o Photoshop novamente: o painel aparece em Janela › Extensões. Leva menos de 2 minutos.",
+    a: "O plugin é entregue em um instalador para Windows e Mac. Feche o Photoshop, execute o instalador, siga o assistente e abra o Photoshop novamente: o painel aparece em Janela › Extensões. Leva menos de 2 minutos.",
   },
   {
     q: "O plugin funciona offline?",
@@ -50,14 +52,14 @@ export const FAQ_ITEMS = [
   },
   {
     q: "Posso usar em mais de um computador?",
-    a: "Sim, a assinatura permite ativação em até 2 computadores (por exemplo, estúdio e notebook) com a mesma conta.",
+    a: "Sim, a licença permite ativação em até 2 computadores (por exemplo, estúdio e notebook) com a mesma conta.",
   },
   {
-    q: "O que acontece se eu cancelar?",
-    a: "Você continua com acesso até o fim do período já pago. Depois disso o painel deixa de abrir, e basta reativar a assinatura para voltar a usar.",
+    q: "O que acontece na renovação?",
+    a: "Após 1 ano, a licença é renovada por apenas R$ 99,90/ano para manter seu acesso às atualizações e ao plugin. Se preferir não renovar, pode cancelar antes do vencimento.",
   },
   {
     q: "Qual a política de reembolso?",
-    a: "Você tem 7 dias corridos após a primeira cobrança para pedir reembolso integral, sem burocracia. Basta responder o email de confirmação.",
+    a: "Você tem 7 dias corridos após a compra inicial para solicitar reembolso integral, sem burocracia. Basta entrar em contato com o suporte.",
   },
 ];

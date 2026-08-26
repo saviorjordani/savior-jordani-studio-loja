@@ -5,7 +5,7 @@ import { toast } from "sonner";
 import { Button, ButtonLink } from "@/components/ui/saviz-button";
 import { BILLING_NOTE, COUPON, PRODUCT_NAME, SKU, TRIAL_NOTE } from "@/lib/site";
 
-const PRICE = 47;
+const PRICE = 399.90;
 const DISCOUNT = 0.5;
 
 const brl = (v: number) =>
@@ -38,7 +38,7 @@ export function CartDrawer({ open, onClose }: { open: boolean; onClose: () => vo
       return;
     }
     setApplied(value);
-    toast.success(`Cupom ${value} aplicado`, { description: "50% de desconto no primeiro mês." });
+    toast.success(`Cupom ${value} aplicado`, { description: "Desconto especial no primeiro ano." });
   };
 
   return (
@@ -74,7 +74,7 @@ export function CartDrawer({ open, onClose }: { open: boolean; onClose: () => vo
             <p className="mt-3 text-xs text-muted-foreground">{BILLING_NOTE}</p>
             <p className="mt-3 text-lg font-bold text-accent-soft">
               {brl(PRICE)}
-              <span className="text-xs font-medium text-muted-foreground">/mês</span>
+              <span className="text-xs font-medium text-muted-foreground">/1º ano</span>
             </p>
           </div>
 
@@ -110,11 +110,11 @@ export function CartDrawer({ open, onClose }: { open: boolean; onClose: () => vo
             </div>
             {applied ? (
               <p className="mt-2 flex items-center gap-1.5 text-xs text-success">
-                <Check className="size-3.5" /> {applied} com 50% off no primeiro mês
+                <Check className="size-3.5" /> {applied} com desconto aplicado
               </p>
             ) : (
               <p className="mt-2 flex items-center gap-1.5 text-xs text-muted-foreground">
-                <BadgePercent className="size-3.5" /> Use {COUPON} e economize no 1º mês
+                <BadgePercent className="size-3.5" /> Use {COUPON} e economize
               </p>
             )}
           </div>
@@ -123,7 +123,7 @@ export function CartDrawer({ open, onClose }: { open: boolean; onClose: () => vo
         <footer className="border-t border-border px-5 py-5">
           <dl className="space-y-2 text-sm">
             <div className="flex justify-between text-muted-foreground">
-              <dt>Subtotal</dt>
+              <dt>Subtotal (1º ano)</dt>
               <dd>{brl(PRICE)}</dd>
             </div>
             {applied ? (
@@ -137,14 +137,12 @@ export function CartDrawer({ open, onClose }: { open: boolean; onClose: () => vo
               <dd className="text-accent-soft">{brl(total)}</dd>
             </div>
           </dl>
-          {applied ? (
-            <p className="mt-2 text-[11px] text-muted-foreground">
-              Depois {brl(PRICE)}/mês. Cancele quando quiser.
-            </p>
-          ) : null}
+          <p className="mt-2 text-[11px] text-muted-foreground">
+            Renovação anual por apenas R$ 99,90/ano a partir do 2º ano. Cancele quando quiser.
+          </p>
 
           <ButtonLink to="/checkout" className="mt-4 w-full" onClick={onClose}>
-            Finalizar assinatura
+            Garantir minha licença
           </ButtonLink>
           <p className="mt-3 flex items-center justify-center gap-1.5 text-[11px] text-muted-foreground">
             <ShieldCheck className="size-3.5 text-success" /> {TRIAL_NOTE}
