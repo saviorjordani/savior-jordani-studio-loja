@@ -7,7 +7,7 @@ import { useSession } from "@tanstack/react-start/server";
  * own Node server, hold the Worker's opaque session token in a sealed
  * HttpOnly cookie, and forward it as a Bearer token server-to-server.
  */
-const AUTH_ORIGIN = "https://painelsaviorjordanistudio.devhextar.site";
+const AUTH_ORIGIN = "https://api.saviz.com.br";
 const SESSION_SECRET = process.env.STORE_SESSION_SECRET;
 
 type StoreUser = {
