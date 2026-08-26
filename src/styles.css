@@ -1,0 +1,154 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Savior Jordâni Studio design system — tema escuro fixo, acento amarelo pastel.
+ * Todas as cores em oklch e expostas como tokens semânticos.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-mono: "Inter", system-ui, -apple-system, sans-serif;
+
+  --color-background: var(--background);
+  --color-background-secondary: var(--background-secondary);
+  --color-background-tertiary: var(--background-tertiary);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-hover: var(--primary-hover);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-muted: var(--accent-muted);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-surface: var(--surface);
+}
+
+:root {
+  --radius: 0.75rem;
+
+  --background: oklch(0.159 0 89.9);
+  --background-secondary: oklch(0.218 0 89.9);
+  --background-tertiary: oklch(0.264 0 89.9);
+  --surface: oklch(0.297 0 89.9);
+  --border: oklch(0.321 0 89.9);
+  --input: oklch(0.264 0 89.9);
+
+  --foreground: oklch(1 0 0);
+  --muted-foreground: oklch(0.783 0 89.9);
+  --muted: oklch(0.264 0 89.9);
+
+  --primary: oklch(0.873 0.09 94.6);
+  --primary-hover: oklch(0.834 0.098 96.4);
+  --primary-foreground: oklch(0.159 0 89.9);
+  --accent-soft: oklch(0.923 0.077 95.5);
+  --accent-muted: oklch(0.571 0.053 72.7);
+
+  --secondary: oklch(0.218 0 89.9);
+  --secondary-foreground: oklch(1 0 0);
+  --accent: oklch(0.264 0 89.9);
+  --accent-foreground: oklch(0.923 0.077 95.5);
+
+  --card: oklch(0.218 0 89.9);
+  --card-foreground: oklch(1 0 0);
+  --popover: oklch(0.218 0 89.9);
+  --popover-foreground: oklch(1 0 0);
+
+  --destructive: oklch(0.688 0.142 21.5);
+  --destructive-foreground: oklch(1 0 0);
+  --success: oklch(0.754 0.163 130.5);
+  --warning: oklch(0.829 0.145 73.5);
+
+  --ring: oklch(0.873 0.09 94.6);
+
+  --gradient-accent: linear-gradient(
+    135deg,
+    oklch(0.923 0.077 95.5) 0%,
+    oklch(0.834 0.098 96.4) 100%
+  );
+  --shadow-glow: 0 0 32px -8px oklch(0.873 0.09 94.6 / 45%);
+  --shadow-lift: 0 18px 40px -20px oklch(0 0 0 / 80%);
+  --transition-micro: 200ms ease-out;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background: var(--accent-soft);
+    color: var(--primary-foreground);
+  }
+}
+
+@utility container-page {
+  width: 100%;
+  max-width: 1280px;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+@utility section-y {
+  padding-block: 3rem;
+  @media (min-width: 768px) {
+    padding-block: 6rem;
+  }
+}
+
+@utility gradient-accent {
+  background-image: var(--gradient-accent);
+}
+
+@utility text-gradient-accent {
+  background-image: var(--gradient-accent);
+  background-clip: text;
+  color: transparent;
+}
+
+@utility hover-lift {
+  transition:
+    transform var(--transition-micro),
+    box-shadow var(--transition-micro),
+    border-color var(--transition-micro);
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lift);
+  }
+}
