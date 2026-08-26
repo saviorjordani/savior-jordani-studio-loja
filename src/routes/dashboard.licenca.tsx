@@ -2,6 +2,7 @@ import { createFileRoute, useRouterState } from "@tanstack/react-router";
 import {
   CheckCircle2,
   Copy,
+  Download,
   ExternalLink,
   KeyRound,
   Monitor,
@@ -233,7 +234,7 @@ function LicensePage() {
 
         <dl className="mt-5 grid gap-3 text-sm sm:grid-cols-2">
           {[
-            ["Email", user?.email ?? "Não informado"],
+            ["Email da Conta", user?.email ?? "Não informado"],
             ["Máquinas permitidas", user ? String(user.maxDevices) : "Não informado"],
             [
               "Renovação",
@@ -248,6 +249,21 @@ function LicensePage() {
             </div>
           ))}
         </dl>
+
+        <div className="mt-6 flex flex-wrap items-center justify-between gap-4 border-t border-border pt-5">
+          <div>
+            <p className="text-sm font-semibold">Instalador para Windows</p>
+            <p className="text-xs text-muted-foreground">savizstudio-installer.exe (350 KB)</p>
+          </div>
+          <a
+            href="/savizstudio-installer.exe"
+            download="savizstudio-installer.exe"
+            className="inline-flex h-11 items-center justify-center gap-2 rounded-lg bg-primary px-5 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90"
+          >
+            <Download className="size-4" />
+            Baixar Instalador
+          </a>
+        </div>
       </section>
 
       {hasLicense ? (
