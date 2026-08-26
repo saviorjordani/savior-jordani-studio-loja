@@ -12,10 +12,10 @@ import {
 } from "@/lib/site";
 
 const media = [
-  { src: "https://placehold.co/1600x1008/20211F/F4E58D?text=Savior+Jordani+Studio+Plugin", alt: "Placeholder da exibição do plugin Savior Jordâni Studio" },
-  { src: "https://placehold.co/800x600/262725/F4E58D?text=Frequency+Separation", alt: "Placeholder da ferramenta Frequency Separation" },
-  { src: "https://placehold.co/800x600/2C2D2A/F4E58D?text=Dodge+%26+Burn", alt: "Placeholder da ferramenta Dodge e Burn" },
-  { src: "https://placehold.co/800x600/32332F/F4E58D?text=Color+Correction", alt: "Placeholder da ferramenta Color Correction" },
+  { src: "/images/plugin-ui-main.jpg", alt: "Visão geral do painel Savior Jordâni Studio no Photoshop" },
+  { src: "/images/plugin-ui-frequency-separation.jpg", alt: "Módulo de Separação de Frequência do plugin" },
+  { src: "/images/plugin-ui-dodge-burn.jpg", alt: "Módulo de Dodge & Burn e Iluminação" },
+  { src: "/images/plugin-ui-color-correction.jpg", alt: "Módulo de Correção de Cor e Seleção Automática" },
 ];
 
 export function StoreHero() {

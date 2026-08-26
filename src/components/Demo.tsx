@@ -1,15 +1,12 @@
 import { ChevronLeft, ChevronRight, Play } from "lucide-react";
 import { useState } from "react";
-import screen1 from "@/assets/screen-1.jpg";
-import screen2 from "@/assets/screen-2.jpg";
-import screen3 from "@/assets/screen-3.jpg";
 import videoCover from "@/assets/video-cover.jpg";
 import { cn } from "@/lib/utils";
-
 const slides = [
-  { src: screen1, alt: "Painel de Frequency Separation do plugin Savior Jordâni Studio", caption: "Frequency Separation" },
-  { src: screen2, alt: "Camada de Dodge & Burn aplicada sobre um retrato no Photoshop", caption: "Dodge & Burn" },
-  { src: screen3, alt: "Painel de correção de cor com curvas e color wheels", caption: "Color Correction" },
+  { src: "/images/plugin-ui-frequency-separation.jpg", alt: "Painel de Separação de Frequência do plugin Savior Jordâni Studio", caption: "Separação de Frequência (8-bit e 16-bit)" },
+  { src: "/images/plugin-ui-dodge-burn.jpg", alt: "Controles de Dodge & Burn e Iluminação no Photoshop", caption: "Dodge & Burn (Global, Local e Escultura de Luz)" },
+  { src: "/images/plugin-ui-color-correction.jpg", alt: "Painel de Correção de Cor e Seleção Automática", caption: "Correção de Cor e Seleção Automática" },
+  { src: "/images/plugin-ui-main.jpg", alt: "Painel completo docked dentro do Adobe Photoshop", caption: "Interface Completa no Photoshop" },
 ];
 
 export function Demo({ id = "demo" }: { id?: string }) {
