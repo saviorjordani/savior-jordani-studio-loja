@@ -28,3 +28,7 @@ npm run dev
 - TypeScript
 - React
 - Tailwind CSS
+
+---
+*Deploy e integração contínua ativos via Cloudflare Pages & GitHub Actions.*
+
