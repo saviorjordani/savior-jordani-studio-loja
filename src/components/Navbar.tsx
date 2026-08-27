@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { CartDrawer } from "@/components/CartDrawer";
 import { SearchDialog } from "@/components/SearchDialog";
 import { ButtonLink, Button } from "@/components/ui/saviz-button";
+import { useCart } from "@/lib/cart-context";
 import { useCustomerSession } from "@/lib/customer-session";
 
 const links = [
@@ -18,8 +19,8 @@ const links = [
 export function Navbar() {
   const [open, setOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
-  const [cartOpen, setCartOpen] = useState(false);
   const { signedIn } = useCustomerSession();
+  const { openCart, totalItems } = useCart();
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -65,11 +66,13 @@ export function Navbar() {
             <User className="size-4" />
             {signedIn ? "Minha conta" : "Entrar"}
           </ButtonLink>
-          <Button variant="secondary" aria-label="Abrir carrinho" onClick={() => setCartOpen(true)}>
+          <Button variant="secondary" aria-label="Abrir carrinho" onClick={openCart}>
             <ShoppingCart className="size-4" />
-            <span className="rounded bg-primary px-1.5 text-[11px] font-bold text-primary-foreground">
-              1
-            </span>
+            {totalItems > 0 ? (
+              <span className="rounded bg-primary px-1.5 text-[11px] font-bold text-primary-foreground">
+                {totalItems}
+              </span>
+            ) : null}
           </Button>
         </div>
 
@@ -85,10 +88,15 @@ export function Navbar() {
           <button
             type="button"
             aria-label="Abrir carrinho"
-            onClick={() => setCartOpen(true)}
-            className="flex size-10 items-center justify-center rounded-lg border border-border text-foreground"
+            onClick={openCart}
+            className="relative flex size-10 items-center justify-center rounded-lg border border-border text-foreground"
           >
             <ShoppingCart className="size-5" />
+            {totalItems > 0 ? (
+              <span className="absolute -top-1 -right-1 flex size-5 items-center justify-center rounded-full bg-primary font-mono text-[10px] font-bold text-primary-foreground">
+                {totalItems}
+              </span>
+            ) : null}
           </button>
           <button
             type="button"
@@ -158,7 +166,7 @@ export function Navbar() {
       ) : null}
 
       <SearchDialog open={searchOpen} onClose={() => setSearchOpen(false)} />
-      <CartDrawer open={cartOpen} onClose={() => setCartOpen(false)} />
+      <CartDrawer />
 
     </header>
   );

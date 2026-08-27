@@ -10,6 +10,7 @@ import { useEffect, type ReactNode } from "react";
 
 import { NotFoundPage } from "@/components/NotFoundPage";
 import { Toaster } from "@/components/ui/sonner";
+import { CartProvider } from "@/lib/cart-context";
 import appCss from "../styles.css?url";
 
 function NotFoundComponent() {
@@ -112,7 +113,9 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Outlet />
+      <CartProvider>
+        <Outlet />
+      </CartProvider>
     </QueryClientProvider>
   );
 }

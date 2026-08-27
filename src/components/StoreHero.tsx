@@ -1,6 +1,7 @@
 import { Download, Heart, RefreshCw, ShieldCheck, ShoppingCart, Zap } from "lucide-react";
 import { useState } from "react";
 import { Button, ButtonLink } from "@/components/ui/saviz-button";
+import { useCart } from "@/lib/cart-context";
 import {
   BILLING_NOTE,
   FILE_INFO,
@@ -20,6 +21,7 @@ const media = [
 
 export function StoreHero() {
   const [active, setActive] = useState(0);
+  const { addItem } = useCart();
 
   return (
     <section className="border-b border-border">
@@ -86,17 +88,16 @@ export function StoreHero() {
               <p className="mt-1 text-sm text-muted-foreground">{BILLING_NOTE}</p>
 
               <div className="mt-5 space-y-2.5">
-                <ButtonLink to="/checkout" size="lg" className="w-full">
+                <Button size="lg" className="w-full" onClick={() => addItem()}>
                   <ShoppingCart className="size-4" />
-                  Assinar agora
-                </ButtonLink>
-                <ButtonLink to="/recursos" variant="secondary" size="lg" className="w-full">
-                  Ver demonstração
-                </ButtonLink>
-                <Button variant="ghost" className="w-full">
-                  <Heart className="size-4" />
-                  Salvar para depois
+                  Adicionar ao carrinho
                 </Button>
+                <ButtonLink to="/checkout" variant="secondary" size="lg" className="w-full">
+                  Comprar direto no checkout
+                </ButtonLink>
+                <ButtonLink to="/recursos" variant="ghost" size="lg" className="w-full">
+                  Ver todas as ferramentas
+                </ButtonLink>
               </div>
 
               <ul className="mt-5 space-y-2.5 border-t border-border pt-5 text-sm text-muted-foreground">
