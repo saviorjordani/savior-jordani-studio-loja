@@ -7,8 +7,11 @@ publica as páginas de marketing, conta do cliente, checkout e painel de licenç
 
 | Área                | Local                         | Função                                          |
 | ------------------- | ----------------------------- | ----------------------------------------------- |
-| Rotas               | `src/routes/`                 | Páginas públicas, checkout e área `/dashboard`. |
+| Rotas               | `src/routes/`                 | Páginas públicas, checkout, área `/dashboard` e Console Admin (`/sv-console-7f21a9c4`). |
+| Carrinho de compras | `src/lib/cart-context.tsx`    | Estado global do carrinho (`localStorage`), drawer lateral e contadores de itens. |
+| Console Admin       | `src/routes/sv-console-7f21a9c4.*` | Gestão de preços, imagens do produto 16:9, cupons e métricas Stripe em tempo real. |
 | Sessão do cliente   | `src/lib/store-auth.ts`       | Server functions e cookie HttpOnly da loja.     |
+| Permissões Admin    | `src/lib/auth.ts`             | Controle de e-mails administrativos (`ADMIN_EMAILS`). |
 | Estado no navegador | `src/lib/customer-session.ts` | Carrega a conta atual para a interface.         |
 | Worker da loja      | `src/server.ts`               | Entrada SSR para Cloudflare Pages.              |
 | Configuração        | `wrangler.jsonc`              | Projeto Pages `saviz-loja`.                     |
