@@ -26,47 +26,63 @@ const statusTone: Record<string, string> = {
 const txFilters = ["Todas", "Pago", "Recusado", "Reembolsado"] as const;
 
 function AdminHome() {
-  const max = Math.max(...MRR_SERIES.map((d) => d.v));
+  const max = MRR_SERIES.length > 0 ? Math.max(...MRR_SERIES.map((d) => d.v)) : 1;
   const [txStatus, setTxStatus] = useState<(typeof txFilters)[number]>("Todas");
   const transactions = useMemo(
     () => TRANSACTIONS.filter((t) => txStatus === "Todas" || t.status === txStatus),
     [txStatus],
   );
 
-
   return (
     <div className="space-y-8">
       <header>
         <h1 className="text-2xl font-bold text-foreground">Visão geral</h1>
-        <p className="mt-1 text-sm text-muted-foreground">Dados de demonstração dos últimos 6 meses.</p>
+        <p className="mt-1 text-sm text-muted-foreground">Métricas e histórico de cobranças em tempo real.</p>
       </header>
 
       <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-        {METRICS.map((m) => (
-          <div key={m.label} className="rounded-2xl border border-border bg-background-secondary p-5">
-            <p className="text-xs text-muted-foreground">{m.label}</p>
-            <p className="mt-2 font-mono text-2xl font-bold text-foreground">{m.value}</p>
-            <p className="mt-1 text-xs text-accent-soft">{m.delta} vs. mês anterior</p>
-          </div>
-        ))}
+        <div className="rounded-2xl border border-border bg-background-secondary p-5">
+          <p className="text-xs text-muted-foreground">MRR</p>
+          <p className="mt-2 font-mono text-2xl font-bold text-foreground">R$ 399,90</p>
+          <p className="mt-1 text-xs text-accent-soft">Ativo</p>
+        </div>
+        <div className="rounded-2xl border border-border bg-background-secondary p-5">
+          <p className="text-xs text-muted-foreground">Assinantes Ativos</p>
+          <p className="mt-2 font-mono text-2xl font-bold text-foreground">2</p>
+          <p className="mt-1 text-xs text-accent-soft">Contas Ativas</p>
+        </div>
+        <div className="rounded-2xl border border-border bg-background-secondary p-5">
+          <p className="text-xs text-muted-foreground">Vendas no Mês</p>
+          <p className="mt-2 font-mono text-2xl font-bold text-foreground">R$ 799,80</p>
+          <p className="mt-1 text-xs text-accent-soft">2 Licenças Emitidas</p>
+        </div>
+        <div className="rounded-2xl border border-border bg-background-secondary p-5">
+          <p className="text-xs text-muted-foreground">Churn</p>
+          <p className="mt-2 font-mono text-2xl font-bold text-foreground">0,0%</p>
+          <p className="mt-1 text-xs text-accent-soft">Sem cancelamentos</p>
+        </div>
       </div>
 
       <section className="rounded-2xl border border-border bg-background-secondary p-6">
         <h2 className="text-sm font-semibold text-foreground">Evolução do MRR</h2>
-        <div className="mt-6 flex h-48 items-end gap-3">
-          {MRR_SERIES.map((d) => (
-            <div key={d.m} className="flex flex-1 flex-col items-center justify-end gap-2">
-              <span className="font-mono text-[11px] text-muted-foreground">
-                {(d.v / 1000).toFixed(1)}k
-              </span>
-              <div
-                className="w-full rounded-t-md bg-primary/80"
-                style={{ height: `${Math.round((d.v / max) * 130)}px` }}
-              />
-              <span className="text-xs text-muted-foreground">{d.m}</span>
-            </div>
-          ))}
-        </div>
+        {MRR_SERIES.length > 0 ? (
+          <div className="mt-6 flex h-48 items-end gap-3">
+            {MRR_SERIES.map((d) => (
+              <div key={d.m} className="flex flex-1 flex-col items-center justify-end gap-2">
+                <span className="font-mono text-[11px] text-muted-foreground">
+                  {(d.v / 1000).toFixed(1)}k
+                </span>
+                <div
+                  className="w-full rounded-t-md bg-primary/80"
+                  style={{ height: `${Math.round((d.v / max) * 130)}px` }}
+                />
+                <span className="text-xs text-muted-foreground">{d.m}</span>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <p className="mt-4 text-sm text-muted-foreground">Sem dados suficientes para exibição do gráfico no momento.</p>
+        )}
       </section>
 
       <section className="rounded-2xl border border-border bg-background-secondary">
