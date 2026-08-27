@@ -3,11 +3,18 @@ import { useEffect, useState } from "react";
 /** Mock de sessão do cliente (frontend-only). */
 const KEY = "saviz_session";
 
-/** Email com acesso total ao painel administrativo. */
-export const SUPER_ADMIN_EMAIL = "euwagnerofficial@gmail.com";
+/** Emails com acesso total ao painel administrativo. */
+export const ADMIN_EMAILS = [
+  "euwagnerofficial@gmail.com",
+  "savio.ferreira.souza@gmail.com",
+  "savio.cliente@saviz.com.br",
+  "savizstudio@gmail.com",
+];
 
 export function isSuperAdmin(email: string | null | undefined) {
-  return !!email && email.trim().toLowerCase() === SUPER_ADMIN_EMAIL;
+  if (!email) return false;
+  const normalized = email.trim().toLowerCase();
+  return ADMIN_EMAILS.includes(normalized);
 }
 
 export function signIn(email: string) {

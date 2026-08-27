@@ -41,6 +41,29 @@ function AdminStore() {
   const [textsError, setTextsError] = useState<string | null>(null);
   const textsSubmit = useSubmit();
 
+  const [images, setImages] = useState<string[]>([
+    "/images/plugin-ui-main.jpg",
+    "/images/plugin-ui-frequency-separation.jpg",
+    "/images/plugin-ui-dodge-burn.jpg",
+    "/images/plugin-ui-color-correction.jpg",
+  ]);
+  const imagesSubmit = useSubmit();
+
+  const saveImages = () => {
+    void imagesSubmit.run(async () => {
+      try {
+        await fetch("https://api.saviz.com.br/v1/store/config", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ images }),
+        });
+        toast.success("Imagens do produto salvas e enviadas ao Worker com sucesso");
+      } catch {
+        toast.error("Erro ao salvar imagens no Worker.");
+      }
+    });
+  };
+
   const savePrices = () => {
     if (!/^\d{1,4}(,\d{2})?$/.test(price.trim())) {
       setPriceError("Informe um preço válido (ex.: 47,00).");
@@ -239,6 +262,52 @@ function AdminStore() {
         <Button className="mt-4" disabled={textsSubmit.loading} onClick={saveTexts}>
           {textsSubmit.loading ? "Salvando…" : "Salvar textos"}
         </Button>
+      </section>
+
+      <section className="rounded-2xl border border-border bg-background-secondary p-6">
+        <h2 className="text-sm font-semibold text-foreground">Imagens do Produto (Plugin)</h2>
+        <p className="mt-1 text-xs text-muted-foreground">
+          Gerencie as imagens da interface do plugin exibidas na página de vendas (proporção 16:9).
+        </p>
+        <div className="mt-4 space-y-3">
+          {images.map((img, idx) => (
+            <div key={idx} className="flex items-center gap-3">
+              <img
+                src={img}
+                alt={`Preview ${idx + 1}`}
+                className="size-12 shrink-0 rounded-lg border border-border object-cover bg-background"
+              />
+              <input
+                value={img}
+                onChange={(e) => {
+                  const updated = [...images];
+                  updated[idx] = e.target.value;
+                  setImages(updated);
+                }}
+                className={inputClass}
+                placeholder="/images/plugin-ui-main.jpg ou URL de imagem"
+              />
+              <Button
+                variant="ghost"
+                onClick={() => setImages((prev) => prev.filter((_, i) => i !== idx))}
+                disabled={images.length <= 1}
+              >
+                Remover
+              </Button>
+            </div>
+          ))}
+        </div>
+        <div className="mt-4 flex items-center gap-2">
+          <Button
+            variant="secondary"
+            onClick={() => setImages((prev) => [...prev, "/images/plugin-ui-main.jpg"])}
+          >
+            Adicionar nova imagem
+          </Button>
+          <Button disabled={imagesSubmit.loading} onClick={saveImages}>
+            {imagesSubmit.loading ? "Salvando…" : "Salvar imagens do produto"}
+          </Button>
+        </div>
       </section>
 
       <ConfirmDialog state={confirm} onClose={() => setConfirm(null)} />
