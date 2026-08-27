@@ -31,5 +31,5 @@ jobs:
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: 2e74f2a2ce243101fda0cdc9e54d30bc
+          accountId: 55137216dc77ffda3db2bc8b89eecc0d
           command: pages deploy dist --project-name=saviz-loja
