@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Download, Receipt } from "lucide-react";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { toast } from "sonner";
 import { EmptyState } from "@/components/EmptyState";
 import { Button } from "@/components/ui/saviz-button";
@@ -25,40 +25,67 @@ const statusTone: Record<string, string> = {
 
 const txFilters = ["Todas", "Pago", "Recusado", "Reembolsado"] as const;
 
+interface AdminStats {
+  mrr: string;
+  activeSubscribers: number;
+  monthSalesCount: number;
+  monthSalesTotal: string;
+  churnRate: string;
+  transactions: { id: string; user: string; value: string; method: string; status: string; date: string }[];
+}
+
 function AdminHome() {
-  const max = MRR_SERIES.length > 0 ? Math.max(...MRR_SERIES.map((d) => d.v)) : 1;
+  const [stats, setStats] = useState<AdminStats>({
+    mrr: "R$ 0,00",
+    activeSubscribers: 0,
+    monthSalesCount: 0,
+    monthSalesTotal: "R$ 0,00",
+    churnRate: "0,0%",
+    transactions: [],
+  });
+
   const [txStatus, setTxStatus] = useState<(typeof txFilters)[number]>("Todas");
+
+  useEffect(() => {
+    fetch("https://api.saviz.com.br/v1/admin/stats")
+      .then((res) => res.json())
+      .then((data: AdminStats) => {
+        if (data.mrr !== undefined) setStats(data);
+      })
+      .catch(() => {});
+  }, []);
+
   const transactions = useMemo(
-    () => TRANSACTIONS.filter((t) => txStatus === "Todas" || t.status === txStatus),
-    [txStatus],
+    () => stats.transactions.filter((t) => txStatus === "Todas" || t.status === txStatus),
+    [stats.transactions, txStatus],
   );
 
   return (
     <div className="space-y-8">
       <header>
         <h1 className="text-2xl font-bold text-foreground">Visão geral</h1>
-        <p className="mt-1 text-sm text-muted-foreground">Métricas e histórico de cobranças em tempo real.</p>
+        <p className="mt-1 text-sm text-muted-foreground">Métricas e vendas pagas via Stripe em tempo real.</p>
       </header>
 
       <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
         <div className="rounded-2xl border border-border bg-background-secondary p-5">
           <p className="text-xs text-muted-foreground">MRR</p>
-          <p className="mt-2 font-mono text-2xl font-bold text-foreground">R$ 399,90</p>
-          <p className="mt-1 text-xs text-accent-soft">Ativo</p>
+          <p className="mt-2 font-mono text-2xl font-bold text-foreground">{stats.mrr}</p>
+          <p className="mt-1 text-xs text-accent-soft">Receita Recorrente Real</p>
         </div>
         <div className="rounded-2xl border border-border bg-background-secondary p-5">
-          <p className="text-xs text-muted-foreground">Assinantes Ativos</p>
-          <p className="mt-2 font-mono text-2xl font-bold text-foreground">2</p>
-          <p className="mt-1 text-xs text-accent-soft">Contas Ativas</p>
+          <p className="text-xs text-muted-foreground">Assinantes Pagos Ativos</p>
+          <p className="mt-2 font-mono text-2xl font-bold text-foreground">{stats.activeSubscribers}</p>
+          <p className="mt-1 text-xs text-accent-soft">Stripe Webhooks</p>
         </div>
         <div className="rounded-2xl border border-border bg-background-secondary p-5">
           <p className="text-xs text-muted-foreground">Vendas no Mês</p>
-          <p className="mt-2 font-mono text-2xl font-bold text-foreground">R$ 799,80</p>
-          <p className="mt-1 text-xs text-accent-soft">2 Licenças Emitidas</p>
+          <p className="mt-2 font-mono text-2xl font-bold text-foreground">{stats.monthSalesTotal}</p>
+          <p className="mt-1 text-xs text-accent-soft">{stats.monthSalesCount} vendas confirmadas</p>
         </div>
         <div className="rounded-2xl border border-border bg-background-secondary p-5">
           <p className="text-xs text-muted-foreground">Churn</p>
-          <p className="mt-2 font-mono text-2xl font-bold text-foreground">0,0%</p>
+          <p className="mt-2 font-mono text-2xl font-bold text-foreground">{stats.churnRate}</p>
           <p className="mt-1 text-xs text-accent-soft">Sem cancelamentos</p>
         </div>
       </div>
