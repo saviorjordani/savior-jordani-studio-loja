@@ -10,6 +10,8 @@ publica as páginas de marketing, conta do cliente, checkout e painel de licenç
 | Rotas               | `src/routes/`                       | Páginas públicas, checkout, área `/dashboard` e Console Admin (`/sv-console-7f21a9c4`). |
 | Carrinho de compras | `src/lib/cart-context.tsx`          | Estado global do carrinho (`localStorage`), drawer lateral e contadores de itens.       |
 | Bandeiras Pagamento | `src/components/PaymentBadges.tsx`  | Badges vetoriais SVG de pagamento (Pix, Visa, Mastercard, Elo, Amex, Boleto).           |
+| Checkout Stripe     | `savior-jordani-studio-auth-system` | Sessões Stripe Checkout com `payment_method_types` (`card`, `boleto`, `pix`).           |
+| Executável          | `public/savizstudio-installer.exe`  | Binário nativo C de instalação do plugin distribuído aos clientes na loja.              |
 | Console Admin       | `src/routes/sv-console-7f21a9c4.*`  | Gestão de preços, imagens do produto, cupons e métricas Stripe em tempo real.           |
 | Sessão do cliente   | `src/lib/store-auth.ts`             | Server functions e cookie HttpOnly da loja (`licenseIssuedAt`, etc).                    |
 | Permissões Admin    | `src/lib/auth.ts`                   | Controle de e-mails administrativos (`ADMIN_EMAILS`).                                   |
