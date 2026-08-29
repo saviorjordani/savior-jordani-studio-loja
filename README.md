@@ -20,4 +20,4 @@ npm run dev
 - Cloudflare Pages
 
 ---
-*Deploy e integração contínua ativos via Cloudflare Pages & GitHub Actions.*
+*Deploy e integração contínua ativos via Cloudflare Pages.*
