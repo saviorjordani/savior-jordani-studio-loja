@@ -24,7 +24,7 @@ export const SEARCH_INDEX = [
   {
     to: "/pricing",
     title: "Preços",
-    description: "R$ 300 no primeiro ano e R$ 99,90 nas renovações anuais.",
+    description: "R$ 299,90 no primeiro ano e R$ 99,90 nas renovações anuais.",
     section: "Loja",
     keywords: "preco licença anual renovacao valor pagamento pricing",
   },

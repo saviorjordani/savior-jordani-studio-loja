@@ -39,7 +39,7 @@ function TermosPage() {
         </p>
         <h2>3. Cobrança</h2>
         <p>
-          A primeira cobrança é de R$ 300,00 por 1 ano de acesso. Após esse período, a renovação é
+          A primeira cobrança é de R$ 299,90 por 1 ano de acesso. Após esse período, a renovação é
           anual, no valor de R$ 99,90, e pode ser cancelada antes da próxima cobrança pela área do
           cliente ou pelo suporte.
         </p>

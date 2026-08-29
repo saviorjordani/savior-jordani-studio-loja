@@ -6,7 +6,7 @@ export const LAST_LICENSE_KEY_STORAGE = "sjs_last_license_key";
 export const LICENSE = {
   key: "SVZ7-4K2P-9QX1-B3ND",
   status: "Ativa" as const,
-  plan: "Licença anual · R$ 300 no 1º ano",
+  plan: "Licença anual · R$ 299,90 no 1º ano",
   createdAt: "12/03/2026",
   renewsAt: "12/08/2026",
   version: "1.0.4",
@@ -40,7 +40,7 @@ export const CHANGELOG = [
 ];
 
 export const INVOICES = [
-  { id: "SVZ-2026-03", date: "12/03/2026", value: "R$ 300,00", status: "Pago" },
+  { id: "SVZ-2026-03", date: "12/03/2026", value: "R$ 299,90", status: "Pago" },
   { id: "SVZ-2027-03", date: "12/03/2027", value: "R$ 99,90", status: "Renovação anual" },
 ];
 

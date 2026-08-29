@@ -11,7 +11,7 @@ import { purchaseLicense } from "@/lib/store-auth";
 
 const title = "Checkout | Savior Jordâni Studio Plugin";
 const description =
-  "Licença anual do plugin Savior Jordâni Studio para Photoshop: R$ 300 no primeiro ano e R$ 99,90 nas renovações anuais.";
+  "Licença anual do plugin Savior Jordâni Studio para Photoshop: R$ 299,90 no primeiro ano e R$ 99,90 nas renovações anuais.";
 
 export const Route = createFileRoute("/checkout")({
   head: () => ({
@@ -52,7 +52,7 @@ function CheckoutPage() {
             Comprar licença anual do Savior Jordâni Studio
           </h1>
           <p className="mt-3 text-muted-foreground">
-            R$ 300 no primeiro ano. Depois, renovação anual automática de R$ 99,90, cancelável a
+            R$ 299,90 no primeiro ano. Depois, renovação anual automática de R$ 99,90, cancelável a
             qualquer momento.
           </p>
 

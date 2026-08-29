@@ -244,7 +244,7 @@ function LicensePage() {
                   ? new Date(user.createdAt).toLocaleDateString("pt-BR")
                   : "Não informada",
             ],
-            ["Valor da Licença", hasLicense ? "R$ 300,00 (1º ano)" : "R$ 300,00"],
+            ["Valor da Licença", hasLicense ? "R$ 299,90 (1º ano)" : "R$ 299,90"],
             [
               "Próxima Renovação",
               user?.subscriptionRenewsAt
