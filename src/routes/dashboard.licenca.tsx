@@ -235,13 +235,25 @@ function LicensePage() {
         <dl className="mt-5 grid gap-3 text-sm sm:grid-cols-2">
           {[
             ["Email da Conta", user?.email ?? "Não informado"],
-            ["Máquinas permitidas", user ? String(user.maxDevices) : "Não informado"],
+            ["Máquinas permitidas", user ? `${user.deviceCount} de ${user.maxDevices}` : "Não informado"],
             [
-              "Renovação",
+              "Ativada / Adquirida em",
+              user?.licenseIssuedAt
+                ? new Date(user.licenseIssuedAt).toLocaleDateString("pt-BR")
+                : user?.createdAt
+                  ? new Date(user.createdAt).toLocaleDateString("pt-BR")
+                  : "Não informada",
+            ],
+            ["Valor da Licença", hasLicense ? "R$ 300,00 (1º ano)" : "R$ 300,00"],
+            [
+              "Próxima Renovação",
               user?.subscriptionRenewsAt
                 ? new Date(user.subscriptionRenewsAt).toLocaleDateString("pt-BR")
-                : "Não informada",
+                : user?.licenseExpiresAt
+                  ? new Date(user.licenseExpiresAt).toLocaleDateString("pt-BR")
+                  : "Não informada",
             ],
+            ["Valor da Renovação", "R$ 99,90 / ano"],
           ].map(([k, v]) => (
             <div key={k} className="flex justify-between gap-4 border-b border-border pb-2">
               <dt className="text-muted-foreground">{k}</dt>

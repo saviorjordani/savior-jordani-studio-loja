@@ -10,10 +10,11 @@ import { useSession } from "@tanstack/react-start/server";
 const AUTH_ORIGIN = "https://api.saviz.com.br";
 const SESSION_SECRET = process.env.STORE_SESSION_SECRET || "sjs_store_session_secret_32chars_min_length_secure_default";
 
-type StoreUser = {
+export type StoreUser = {
   email: string;
   displayName: string | null;
   hasLicense: boolean;
+  licenseIssuedAt: string | null;
   licenseExpiresAt: string | null;
   maxDevices: number;
   deviceCount: number;
