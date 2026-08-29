@@ -3,7 +3,7 @@ import { ArrowRight, PackageOpen } from "lucide-react";
 import { canonical, jsonLdScript, organizationJsonLd } from "@/lib/seo";
 import { SiteLayout } from "@/components/SiteLayout";
 import { ButtonLink } from "@/components/ui/saviz-button";
-import { PRICE_FULL_LABEL, PRODUCT_DESCRIPTION, PRODUCT_NAME } from "@/lib/site";
+import { PRICE_LABEL, PRICE_PERIOD, PRODUCT_DESCRIPTION, PRODUCT_NAME } from "@/lib/site";
 
 const title = "Loja | Savior Jordâni Studio";
 const description =
@@ -70,7 +70,10 @@ function StoreHome() {
               <h2 className="mt-2 text-2xl font-bold tracking-tight">{PRODUCT_NAME}</h2>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{PRODUCT_DESCRIPTION}</p>
               <div className="mt-7 flex items-end justify-between gap-4 border-t border-border pt-5">
-                <span className="text-lg font-bold">{PRICE_FULL_LABEL}</span>
+                <span className="text-xl font-bold">
+                  {PRICE_LABEL}{" "}
+                  <span className="text-xs font-normal text-muted-foreground">{PRICE_PERIOD}</span>
+                </span>
                 <ButtonLink to="/plugin" className="px-6">
                   Ver produto <ArrowRight className="size-4" />
                 </ButtonLink>
