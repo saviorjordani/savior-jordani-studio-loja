@@ -1,0 +1,2 @@
+Teste de integração CI/CD GitHub + Cloudflare Pages.
+Data: 2026-08-29
