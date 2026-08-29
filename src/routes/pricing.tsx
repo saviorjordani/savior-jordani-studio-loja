@@ -6,7 +6,7 @@ import { SiteLayout } from "@/components/SiteLayout";
 
 const title = "Preços | Savior Jordâni Studio Plugin para Photoshop";
 const description =
-  "Plano mensal de R$ 47 com todas as ferramentas do plugin Savior Jordâni Studio, atualizações contínuas e suporte por email. Cancele quando quiser.";
+  "Licença anual de R$ 300 no primeiro ano, com renovação anual de R$ 99,90, atualizações contínuas e suporte por email.";
 
 export const Route = createFileRoute("/pricing")({
   head: () => ({
@@ -33,7 +33,7 @@ function PricingPage() {
               Preços simples, <span className="text-gradient-accent">sem surpresas</span>
             </h1>
             <p className="mt-5 text-muted-foreground md:text-lg">
-              Um plugin, um plano. R$ 47 por mês, sem fidelidade.
+              Um plugin, uma licença anual. R$ 300 no primeiro ano e R$ 99,90 nas renovações anuais.
             </p>
           </div>
 

@@ -30,7 +30,7 @@ function TermosPage() {
         <h2>1. Licença</h2>
         <p>
           A assinatura concede uma licença pessoal e intransferível de uso do plugin em até 2
-          computadores, válida enquanto a mensalidade estiver em dia.
+          computadores, válida durante o período anual contratado.
         </p>
         <h2>2. Restrições</h2>
         <p>
@@ -39,7 +39,8 @@ function TermosPage() {
         </p>
         <h2>3. Cobrança</h2>
         <p>
-          A cobrança é mensal e recorrente até o cancelamento, feito a qualquer momento pela área do
+          A primeira cobrança é de R$ 300,00 por 1 ano de acesso. Após esse período, a renovação é
+          anual, no valor de R$ 99,90, e pode ser cancelada antes da próxima cobrança pela área do
           cliente ou pelo suporte.
         </p>
         <h2>4. Suporte</h2>

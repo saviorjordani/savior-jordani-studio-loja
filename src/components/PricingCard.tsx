@@ -14,7 +14,7 @@ export function PricingCard({
       <div className="gradient-accent absolute inset-x-0 top-0 h-1" />
 
       <p className="text-xs font-semibold tracking-[0.18em] text-accent-soft uppercase">
-        Plano mensal · Savior Jordâni Studio
+        Licença anual · Savior Jordâni Studio
       </p>
 
       <div className="mt-6 flex items-end gap-2">
@@ -33,13 +33,13 @@ export function PricingCard({
       </ul>
 
       <ButtonLink to="/checkout" size="lg" className="mt-8 w-full">
-        Assinar agora
+        Comprar licença anual
       </ButtonLink>
 
       {!compact ? (
         <p className="mt-4 flex items-center justify-center gap-2 text-xs text-muted-foreground">
           <ShieldCheck className="size-4 text-success" />
-          Pagamento seguro · Cancele quando quiser
+          Pagamento seguro · Renovação anual cancelável
         </p>
       ) : null}
     </div>

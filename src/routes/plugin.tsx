@@ -1,10 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import {
-  canonical,
-  jsonLdScript,
-  organizationJsonLd,
-  productJsonLd,
-} from "@/lib/seo";
+import { canonical, jsonLdScript, organizationJsonLd, productJsonLd } from "@/lib/seo";
 import { Demo } from "@/components/Demo";
 import { Reveal } from "@/components/Reveal";
 import { Faq } from "@/components/Faq";
@@ -15,9 +10,9 @@ import { SiteLayout } from "@/components/SiteLayout";
 import { StoreHero } from "@/components/StoreHero";
 import { TrustStrip } from "@/components/TrustStrip";
 
-const title = "Savior Jordâni Studio Plugin de Retoque para Photoshop | R$ 47/mês";
+const title = "Savior Jordâni Studio Plugin de Retoque para Photoshop | Licença anual";
 const description =
-  "Um único plugin com frequency separation, dodge & burn, textura de pele e correção de cor dentro do Photoshop. Plano mensal de R$ 47, cancele quando quiser.";
+  "Um único plugin com frequency separation, dodge & burn, textura de pele e correção de cor dentro do Photoshop. R$ 300 no primeiro ano e R$ 99,90 nas renovações anuais.";
 
 export const Route = createFileRoute("/plugin")({
   head: () => ({
@@ -57,7 +52,8 @@ function PluginPage() {
                 Um plano, tudo incluído
               </h2>
               <p className="mt-3 text-sm text-muted-foreground">
-                R$ 47 por mês pelo plugin completo, com todas as atualizações. Sem fidelidade.
+                R$ 300 no primeiro ano pelo plugin completo, com todas as atualizações. Depois, R$
+                99,90 por ano.
               </p>
             </div>
             <div className="mt-10">

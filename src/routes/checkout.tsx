@@ -11,7 +11,7 @@ import { purchaseLicense } from "@/lib/store-auth";
 
 const title = "Checkout | Savior Jordâni Studio Plugin";
 const description =
-  "Assine o plugin Savior Jordâni Studio para Photoshop por R$ 47 por mês. Cancele quando quiser.";
+  "Licença anual do plugin Savior Jordâni Studio para Photoshop: R$ 300 no primeiro ano e R$ 99,90 nas renovações anuais.";
 
 export const Route = createFileRoute("/checkout")({
   head: () => ({
@@ -49,10 +49,11 @@ function CheckoutPage() {
       <section className="section-y">
         <div className="container-page">
           <h1 className="text-3xl font-bold tracking-tight md:text-4xl">
-            Assinar o Savior Jordâni Studio
+            Comprar licença anual do Savior Jordâni Studio
           </h1>
           <p className="mt-3 text-muted-foreground">
-            Assinatura mensal. Seu acesso é liberado por email logo após a confirmação.
+            R$ 300 no primeiro ano. Depois, renovação anual automática de R$ 99,90, cancelável a
+            qualquer momento.
           </p>
 
           <div className="mt-10 grid gap-6 lg:grid-cols-[1.3fr_1fr]">
@@ -64,7 +65,7 @@ function CheckoutPage() {
               <div className="rounded-2xl border border-border bg-background-secondary p-6 md:p-8">
                 <h2 className="text-lg font-semibold">Entre para continuar</h2>
                 <p className="mt-2 text-sm text-muted-foreground">
-                  A licença fica vinculada à sua conta. Crie uma conta ou entre antes de assinar.
+                  A licença fica vinculada à sua conta. Crie uma conta ou entre antes de comprar.
                 </p>
                 <div className="mt-6 flex flex-wrap gap-3">
                   <ButtonLink to="/register" size="lg">
@@ -111,8 +112,8 @@ function CheckoutPage() {
                 </Button>
 
                 <p className="mt-4 text-center text-xs text-muted-foreground">
-                  Ao assinar, você concorda com os Termos de Uso. A cobrança se repete todo mês até
-                  você cancelar.
+                  Ao comprar, você concorda com os Termos de Uso. A renovação anual de R$ 99,90
+                  começa após o primeiro ano e pode ser cancelada antes da próxima cobrança.
                 </p>
               </form>
             )}
@@ -123,7 +124,7 @@ function CheckoutPage() {
               <div className="mt-6 rounded-xl border border-border bg-background-tertiary p-5">
                 <p className="text-sm font-semibold">Savior Jordâni Studio Plugin</p>
                 <p className="mt-1 text-xs text-muted-foreground">
-                  Plano mensal · até 2 computadores
+                  Licença anual · até 2 computadores
                 </p>
                 <p className="mt-4 text-3xl font-bold tracking-tight">
                   {PRICE_LABEL}
@@ -146,7 +147,7 @@ function CheckoutPage() {
                 </div>
                 <div className="h-px bg-border" />
                 <div className="flex justify-between font-semibold">
-                  <dt>Total mensal</dt>
+                  <dt>Total hoje</dt>
                   <dd>{PRICE_FULL_LABEL}</dd>
                 </div>
               </dl>

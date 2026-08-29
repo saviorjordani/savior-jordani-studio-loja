@@ -25,16 +25,36 @@ export const Route = createFileRoute("/afiliados")({
 });
 
 const highlights = [
-  { icon: BadgePercent, t: "30% recorrente", d: "Sobre cada mensalidade paga, mês após mês." },
-  { icon: CalendarClock, t: "Cookie de 60 dias", d: "A indicação continua sua mesmo se ele assinar depois." },
+  { icon: BadgePercent, t: "30% recorrente", d: "Sobre cada renovação anual paga." },
+  {
+    icon: CalendarClock,
+    t: "Cookie de 60 dias",
+    d: "A indicação continua sua mesmo se ele assinar depois.",
+  },
   { icon: Link2, t: "Link e cupom próprios", d: "Seu cupom dá desconto e identifica a venda." },
 ];
 
 const steps = [
-  { n: "1", t: "Cadastro", d: "Você envia seu perfil e como pretende divulgar. Aprovamos em até 2 dias úteis." },
-  { n: "2", t: "Seu link", d: "Recebe um link exclusivo, um cupom e acesso ao painel de indicações." },
-  { n: "3", t: "Divulgação", d: "Use em vídeos, cursos, portfólio ou comunidade. Enviamos materiais prontos." },
-  { n: "4", t: "Pagamento", d: "Comissões fechadas no dia 1 e pagas via Pix no dia 10 do mês seguinte." },
+  {
+    n: "1",
+    t: "Cadastro",
+    d: "Você envia seu perfil e como pretende divulgar. Aprovamos em até 2 dias úteis.",
+  },
+  {
+    n: "2",
+    t: "Seu link",
+    d: "Recebe um link exclusivo, um cupom e acesso ao painel de indicações.",
+  },
+  {
+    n: "3",
+    t: "Divulgação",
+    d: "Use em vídeos, cursos, portfólio ou comunidade. Enviamos materiais prontos.",
+  },
+  {
+    n: "4",
+    t: "Pagamento",
+    d: "Comissões fechadas no dia 1 e pagas via Pix no dia 10 do mês seguinte.",
+  },
 ];
 
 const earnings = [
@@ -86,7 +106,7 @@ function AfiliadosPage() {
             <thead className="bg-background-secondary text-left text-xs text-muted-foreground">
               <tr>
                 <th className="px-5 py-3 font-medium">Indicações ativas</th>
-                <th className="px-5 py-3 font-medium">Comissão mensal</th>
+                <th className="px-5 py-3 font-medium">Comissão anual</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-border">
@@ -99,16 +119,16 @@ function AfiliadosPage() {
             </tbody>
           </table>
         </div>
-        <p className="text-xs">
-          Cálculo sobre a mensalidade de R$ 47, considerando assinaturas mantidas ativas no mês.
-        </p>
+        <p className="text-xs">Cálculo sobre cada renovação anual de R$ 99,90 confirmada.</p>
 
         <h2>Regras do programa</h2>
         <ul>
           <li>Não é permitido anunciar em buscadores usando a marca Savior Jordâni Studio.</li>
           <li>Autoindicação e compras com o próprio cupom não geram comissão.</li>
           <li>Comissões de assinaturas reembolsadas ou canceladas em 7 dias são estornadas.</li>
-          <li>Pagamento mínimo de R$ 50 acumulados; abaixo disso o saldo passa para o mês seguinte.</li>
+          <li>
+            Pagamento mínimo de R$ 50 acumulados; abaixo disso o saldo passa para o mês seguinte.
+          </li>
         </ul>
 
         <div className="pt-2">

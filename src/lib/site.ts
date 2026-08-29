@@ -7,11 +7,12 @@ export const PRODUCT_SHORT =
 export const PRODUCT_DESCRIPTION =
   "O Savior Jordâni Studio é um só painel instalado no Photoshop que reúne as rotinas de retoque que você repete todos os dias: separação de frequência, dodge & burn, textura de pele, seleções rápidas e correção de cor. Nada de pacotes soltos: é um plugin atualizado continuamente.";
 
-export const PRICE_LABEL = "R$ 399,90";
+export const PRICE_LABEL = "R$ 300,00";
 export const PRICE_PERIOD = "/1º ano";
-export const PRICE_FULL_LABEL = "R$ 399,90 no 1º ano";
+export const PRICE_FULL_LABEL = "R$ 300,00 no 1º ano";
 export const PRICE_RENEWAL_LABEL = "Renovação por R$ 99,90/ano";
-export const BILLING_NOTE = "R$ 399,90 na primeira aquisição (1 ano de acesso) · Renovação por apenas R$ 99,90/ano";
+export const BILLING_NOTE =
+  "R$ 300,00 na primeira aquisição (1 ano de acesso) · Renovação automática por R$ 99,90/ano";
 export const TRIAL_NOTE = "7 dias de garantia com reembolso integral";
 export const FILE_INFO = "Instalador .exe · 350 KB · Windows";
 export const SKU = "SVZ-PS-001";
@@ -40,7 +41,7 @@ export const PLAN_INCLUDES = [
 export const FAQ_ITEMS = [
   {
     q: "Como funciona a licença e a renovação?",
-    a: "A primeira aquisição custa R$ 399,90 e dá direito a 1 ano de acesso completo ao plugin com todas as atualizações. A partir do 2º ano, a renovação anual custa apenas R$ 99,90/ano. Você pode gerenciar ou cancelar a renovação a qualquer momento.",
+    a: "A primeira aquisição custa R$ 300,00 e dá direito a 1 ano de acesso completo ao plugin com todas as atualizações. A partir do 2º ano, a renovação anual custa R$ 99,90/ano. Você pode gerenciar ou cancelar a renovação a qualquer momento.",
   },
   {
     q: "Como instalo o plugin?",

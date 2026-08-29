@@ -44,7 +44,7 @@ export function Footer() {
           </div>
           <p className="mt-3 max-w-xs text-sm text-muted-foreground">
             Um único plugin de retoque para Photoshop, feito para fotógrafos e retocadores
-            profissionais. Assinatura mensal, sem fidelidade.
+            profissionais. Licença anual com renovação opcional.
           </p>
           <div className="mt-4 flex items-center gap-2">
             {[Instagram, Youtube].map((Icon, i) => (
@@ -92,7 +92,10 @@ export function Footer() {
           <span>© 2026 Savior Jordâni Studio · CNPJ 00.000.000/0001-00</span>
           <div className="flex flex-wrap items-center justify-center gap-1.5">
             {["Pix", "Visa", "Mastercard", "Elo", "Amex", "Boleto"].map((m) => (
-              <span key={m} className="rounded border border-border px-2 py-1 font-mono text-[11px]">
+              <span
+                key={m}
+                className="rounded border border-border px-2 py-1 font-mono text-[11px]"
+              >
                 {m}
               </span>
             ))}

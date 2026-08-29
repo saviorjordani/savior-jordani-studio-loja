@@ -10,7 +10,10 @@ export const Route = createFileRoute("/sv-console-7f21a9c4/loja")({
   head: () => ({
     meta: [
       { title: "Configurações da loja | Admin Savior Jordâni Studio" },
-      { name: "description", content: "Preço da assinatura, cupons de desconto e textos da landing page." },
+      {
+        name: "description",
+        content: "Preço da assinatura, cupons de desconto e textos da landing page.",
+      },
       { name: "robots", content: "noindex" },
     ],
   }),
@@ -111,7 +114,9 @@ function AdminStore() {
     const disabling = c.status !== "Inativo";
     const apply = () => {
       setCoupons((prev) =>
-        prev.map((x) => (x.code === c.code ? { ...x, status: disabling ? "Inativo" : "Ativo" } : x)),
+        prev.map((x) =>
+          x.code === c.code ? { ...x, status: disabling ? "Inativo" : "Ativo" } : x,
+        ),
       );
       toast.success(disabling ? `Cupom ${c.code} desativado` : `Cupom ${c.code} reativado`);
     };
@@ -141,7 +146,7 @@ function AdminStore() {
         <h2 className="text-sm font-semibold text-foreground">Assinatura</h2>
         <div className="mt-4 grid gap-4 sm:grid-cols-3">
           <label className="text-sm">
-            <span className="text-muted-foreground">Preço mensal (R$)</span>
+            <span className="text-muted-foreground">Preço do primeiro ano (R$)</span>
             <input
               value={price}
               onChange={(e) => setPrice(e.target.value)}
@@ -217,7 +222,9 @@ function AdminStore() {
             <tbody>
               {coupons.map((c) => (
                 <tr key={c.code} className="border-t border-border">
-                  <td className="px-6 py-3 font-mono whitespace-nowrap text-accent-soft">{c.code}</td>
+                  <td className="px-6 py-3 font-mono whitespace-nowrap text-accent-soft">
+                    {c.code}
+                  </td>
                   <td className="px-6 py-3 whitespace-nowrap text-foreground">{c.off}</td>
                   <td className="px-6 py-3 whitespace-nowrap text-muted-foreground">{c.uses}</td>
                   <td
@@ -256,7 +263,11 @@ function AdminStore() {
         </label>
         <label className="mt-4 block text-sm">
           <span className="text-muted-foreground">Barra de anúncio</span>
-          <input value={banner} onChange={(e) => setBanner(e.target.value)} className={inputClass} />
+          <input
+            value={banner}
+            onChange={(e) => setBanner(e.target.value)}
+            className={inputClass}
+          />
         </label>
         {textsError ? <p className="mt-2 text-sm text-destructive">{textsError}</p> : null}
         <Button className="mt-4" disabled={textsSubmit.loading} onClick={saveTexts}>

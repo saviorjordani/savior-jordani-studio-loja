@@ -3,7 +3,7 @@ export const SEARCH_INDEX = [
   {
     to: "/plugin",
     title: "O plugin Savior Jordâni Studio",
-    description: "Página do produto: ferramentas, preço e assinatura mensal.",
+    description: "Página do produto: ferramentas, preço e licença anual.",
     section: "Loja",
     keywords: "plugin photoshop painel produto home inicio comprar assinatura",
   },
@@ -24,9 +24,9 @@ export const SEARCH_INDEX = [
   {
     to: "/pricing",
     title: "Preços",
-    description: "Plano mensal de R$ 47, sem fidelidade.",
+    description: "R$ 300 no primeiro ano e R$ 99,90 nas renovações anuais.",
     section: "Loja",
-    keywords: "preco plano assinatura mensal valor pagamento pricing",
+    keywords: "preco licença anual renovacao valor pagamento pricing",
   },
   {
     to: "/checkout",
@@ -148,7 +148,9 @@ export function searchSite(query: string): SearchEntry[] {
   if (!q) return [];
   const terms = q.split(/\s+/);
   return SEARCH_INDEX.filter((entry) => {
-    const haystack = normalize(`${entry.title} ${entry.description} ${entry.keywords} ${entry.section}`);
+    const haystack = normalize(
+      `${entry.title} ${entry.description} ${entry.keywords} ${entry.section}`,
+    );
     return terms.every((t) => haystack.includes(t));
   }).slice(0, 8);
 }

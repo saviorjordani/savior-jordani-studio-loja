@@ -6,7 +6,7 @@ export const LAST_LICENSE_KEY_STORAGE = "sjs_last_license_key";
 export const LICENSE = {
   key: "SVZ7-4K2P-9QX1-B3ND",
   status: "Ativa" as const,
-  plan: "Mensal · R$ 47/mês",
+  plan: "Licença anual · R$ 300 no 1º ano",
   createdAt: "12/03/2026",
   renewsAt: "12/08/2026",
   version: "1.0.4",
@@ -29,7 +29,11 @@ export const CHANGELOG = [
   {
     v: "1.0.4",
     date: "20/07/2026",
-    items: ["Novo motor de textura de pele", "Correções no Dodge & Burn", "Melhor desempenho em 8K"],
+    items: [
+      "Novo motor de textura de pele",
+      "Correções no Dodge & Burn",
+      "Melhor desempenho em 8K",
+    ],
   },
   {
     v: "1.0.3",
@@ -40,9 +44,8 @@ export const CHANGELOG = [
 ];
 
 export const INVOICES = [
-  { id: "SVZ-2026-07", date: "12/07/2026", value: "R$ 47,00", status: "Pago" },
-  { id: "SVZ-2026-06", date: "12/06/2026", value: "R$ 47,00", status: "Pago" },
-  { id: "SVZ-2026-05", date: "12/05/2026", value: "R$ 23,50", status: "Pago" },
+  { id: "SVZ-2026-03", date: "12/03/2026", value: "R$ 300,00", status: "Pago" },
+  { id: "SVZ-2027-03", date: "12/03/2027", value: "R$ 99,90", status: "Renovação anual" },
 ];
 
 export const SESSIONS = [
