@@ -19,11 +19,7 @@ export const MACHINES = [
 
 export const MACHINE_LIMIT = 2;
 
-export const NEWS = [
-  { t: "Versão 1.0.4 disponível", d: "Novo motor de textura de pele e correções no Dodge & Burn." },
-  { t: "Tutorial: Frequency Separation em 3 cliques", d: "Vídeo de 6 minutos no canal oficial." },
-  { t: "Manutenção programada", d: "Servidor de licenças em manutenção dia 02/08, 03h–04h." },
-];
+export const NEWS: Array<{ t: string; d: string }> = [];
 
 export const CHANGELOG = [
   {

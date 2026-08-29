@@ -88,14 +88,18 @@ function DashboardHome() {
 
       <section className="rounded-2xl border border-border bg-background-secondary p-6">
         <h2 className="text-sm font-bold tracking-wide uppercase">Últimas notícias</h2>
-        <ul className="mt-4 space-y-4">
-          {NEWS.map((n) => (
-            <li key={n.t} className="border-b border-border pb-3 last:border-0 last:pb-0">
-              <p className="text-sm font-medium">{n.t}</p>
-              <p className="text-xs text-muted-foreground">{n.d}</p>
-            </li>
-          ))}
-        </ul>
+        {NEWS.length > 0 ? (
+          <ul className="mt-4 space-y-4">
+            {NEWS.map((n) => (
+              <li key={n.t} className="border-b border-border pb-3 last:border-0 last:pb-0">
+                <p className="text-sm font-medium">{n.t}</p>
+                <p className="text-xs text-muted-foreground">{n.d}</p>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p className="mt-3 text-sm text-muted-foreground">Nenhuma notícia no momento.</p>
+        )}
       </section>
     </div>
   );
