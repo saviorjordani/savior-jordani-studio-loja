@@ -18,8 +18,18 @@ navegador.
    `stripe_subscriptions`.
 6. Com assinatura `active` ou `trialing`, o Worker cria a key se necessário e
    atualiza a expiração da licença.
-7. Em `/dashboard/licenca`, a loja carrega `GET /v1/store/me`; a key é revelada
-   sob demanda por `GET /v1/store/license-credentials` para a própria conta.
+7. Em `/dashboard/licenca`, a loja carrega os dados completos da licença via `GET /v1/store/me`.
+
+## Exibição da Licença no Painel (`/dashboard/licenca`)
+
+No painel do cliente, os dados da licença exibem:
+
+- **Data de Ativação / Aquisição**: Exibe o momento em que a licença foi emitida (`licenseIssuedAt` / `license_issued_at` ou `createdAt`).
+- **Valor da Licença**: R$ 300,00 (1º ano).
+- **Data da Próxima Renovação**: Data de renovação da assinatura (`subscriptionRenewsAt` ou `licenseExpiresAt`).
+- **Valor da Renovação**: R$ 99,90 / ano.
+- **Uso de Dispositivos**: Quantidade de computadores vinculados (`deviceCount / maxDevices`, ex: 1/2 máquinas).
+- **Chave de Ativação (Key)**: Revelada com segurança sob demanda por `GET /v1/store/license-credentials` para a própria conta autenticada.
 
 ## Retorno do Checkout
 
