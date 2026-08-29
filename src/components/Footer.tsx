@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Aperture, Instagram, Mail, Youtube } from "lucide-react";
+import { PaymentBadges } from "@/components/PaymentBadges";
 
 const cols = [
   {
@@ -90,16 +91,7 @@ export function Footer() {
       <div className="border-t border-border">
         <div className="container-page flex flex-col items-center justify-between gap-4 py-6 text-xs text-muted-foreground md:flex-row">
           <span>© 2026 Savior Jordâni Studio · CNPJ 00.000.000/0001-00</span>
-          <div className="flex flex-wrap items-center justify-center gap-1.5">
-            {["Pix", "Visa", "Mastercard", "Elo", "Amex", "Boleto"].map((m) => (
-              <span
-                key={m}
-                className="rounded border border-border px-2 py-1 font-mono text-[11px]"
-              >
-                {m}
-              </span>
-            ))}
-          </div>
+          <PaymentBadges />
           <div className="flex gap-4">
             <Link to="/termos" className="transition-colors hover:text-foreground">
               Termos

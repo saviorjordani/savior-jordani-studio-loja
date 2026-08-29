@@ -2,6 +2,7 @@ import { Download, Heart, RefreshCw, ShieldCheck, ShoppingCart, Zap } from "luci
 import { useState } from "react";
 import { Button, ButtonLink } from "@/components/ui/saviz-button";
 import { useCart } from "@/lib/cart-context";
+import { PaymentBadges } from "@/components/PaymentBadges";
 import {
   BILLING_NOTE,
   FILE_INFO,
@@ -119,15 +120,8 @@ export function StoreHero() {
                 </li>
               </ul>
 
-              <div className="mt-5 flex flex-wrap gap-1.5 border-t border-border pt-4">
-                {["Pix", "Visa", "Mastercard", "Elo", "Boleto"].map((m) => (
-                  <span
-                    key={m}
-                    className="rounded border border-border px-2 py-1 font-mono text-[11px] text-muted-foreground"
-                  >
-                    {m}
-                  </span>
-                ))}
+              <div className="mt-5 border-t border-border pt-4 flex justify-start">
+                <PaymentBadges />
               </div>
             </div>
 
